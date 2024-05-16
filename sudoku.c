@@ -42,7 +42,9 @@ void print_node(Node *n) {
   printf("\n");
 }
 
-int is_valid(Node *n) { return 1; }
+int is_valid(Node *n) {
+   
+}
 
 List *get_adj_nodes(Node *n) {
    List *list = createList();
@@ -54,15 +56,12 @@ List *get_adj_nodes(Node *n) {
             for(k=1;k<=9;++k){
                Node *new = copy(n);
                new->sudo[i][j] = k;
-               if(is_valid(new)){
-                  pushBack(list, new);
-               } 
+               pushBack(list, new);
             }
          }
       }
    }
    return list;
-   
 }
 
 int is_final(Node *n) { return 0; }
