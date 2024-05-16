@@ -43,7 +43,10 @@ void print_node(Node *n) {
 }
 
 int is_valid(Node *n) {
-   return 1;
+   int i, j;
+   for(i=0;i<3;++i){
+      for(j=0;j<3;++j)
+   }
 }
 
 List *get_adj_nodes(Node *n) {

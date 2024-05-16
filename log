@@ -25,3 +25,17 @@ Thu 16 May 2024 04:21:56 PM UTC:
  tests:  2|4
 total_score: 15/70
 35670c5
+Thu 16 May 2024 04:23:44 PM UTC: 
+ sudoku.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:49:4: error: expected expression before ‘}’ token
+   49 |    }
+      |    ^
+sudoku.c:50:1: error: control reaches end of non-void function [-Werror=return-type]
+   50 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+16fa903
