@@ -95,7 +95,7 @@ Node *DFS(Node *initial, int *cont) {
   Stack *S = createStack();
   push(S, initial);
   while (get_size(S) != 0){
-    Node *n = top(S);
+    Node *n = pop(S);
     pop(S);
     if(is_final(n))
       return n;
