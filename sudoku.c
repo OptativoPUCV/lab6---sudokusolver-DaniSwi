@@ -49,10 +49,8 @@ int is_valid(Node *n) {
       if (n->sudo[i][j] == 0)
         continue;
       for (int k = 0; k < 9; ++k) {
-        if (k != j) {
-          if (n->sudo[i][k] == n->sudo[i][j]) {
-            return 0;
-          }
+        if (k != j && n->sudo[i][k] == n->sudo[i][j]) {
+          return 0;
         }
       }
     }
@@ -70,8 +68,7 @@ List *get_adj_nodes(Node *n) {
       if (n->sudo[i][j] == 0) {
         int k;
         for (k = 1; k <= 9; ++k) {
-          Node *new = createNode();
-          new = copy(n);
+          Node *new = copy(n);
           new->sudo[i][j] = k;
           pushBack(list, new);
           if(is_valid(new) == 0)
