@@ -63,20 +63,20 @@ int is_valid(Node *n) {
       col[n->sudo[j][i]] = 1;
     }
   }
-  for (int i = 0; i < 9; i += 3){
-      for (int j = 0; j < 9; j += 3){
-         int box_check[10] = {0};
-         for (int k = i; k < i + 3; k++){
-            for (int l = j; l < j + 3; l++){
-               if (n->sudo[k][l] != 0 && box_check[n->sudo[k][l]] == 1){
-                  return 0;
-               }
-               box_check[n->sudo[k][l]] = 1;
-            }
-         }
+  for(int i=0;i<9;i+=3){
+    for(int j=0;j<9;j+=3){
+      int test[10]={0};
+      for(int k=i;k<i+3;++k){
+        for(int l=j;l<j+3;++l){
+          if(n->sudo[k][l]!=0){
+            if(test[n->sudo[k][l]]==1)
+              return 0;
+          }
+          test[n->sudo[k][l]] = 1;
+        }
       }
-   }
-
+    }
+  }
   return 1;
 }
 
