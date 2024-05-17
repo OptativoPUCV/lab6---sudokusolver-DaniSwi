@@ -95,6 +95,7 @@ List *get_adj_nodes(Node *n) {
           if(is_valid(new))
             pushBack(list, new);
         }
+        return list;
       }
     }
   }
