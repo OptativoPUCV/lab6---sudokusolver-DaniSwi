@@ -43,37 +43,38 @@ void print_node(Node *n) {
 }
 
 int is_valid(Node *n) {
-  for (int i = 0; i < 9; i++){
-    int row_check[10] = {0};
-    for (int j = 0; j < 9; j++){
-       if (n->sudo[i][j] != 0 && row_check[n->sudo[i][j]] == 1){
+  for(int i=0;i<9;++i){
+    int fila[10]={0};
+    for(int j=0;j<9;++j){
+      if(n->sudo[i][j]!=0){
+        if(fila[n->sudo[i][j]]==1)
           return 0;
-       }
-       row_check[n->sudo[i][j]] = 1;
+      }
+      fila[n->sudo[i][j]] = 1;
     }
   }
-
-  for (int j = 0; j < 9; j++){
-    int col_check[10] = {0};
-    for (int i = 0; i < 9; i++){
-       if (n->sudo[i][j] != 0 && col_check[n->sudo[i][j]] == 1){
+  for(int i=0;i<9;++i){
+    int col[10]={0};
+    for(int j=0;j<9;++j){
+      if(n->sudo[j][i]!=0){
+        if(col[n->sudo[j][i]]==1)
           return 0;
-       }
-       col_check[n->sudo[i][j]] = 1;
+      }
+      col[n->sudo[j][i]] = 1;
     }
   }
-
-  for (int i = 0; i < 9; i += 3){
-    for (int j = 0; j < 9; j += 3){
-       int box_check[10] = {0};
-       for (int k = i; k < i + 3; k++){
-          for (int l = j; l < j + 3; l++){
-             if (n->sudo[k][l] != 0 && box_check[n->sudo[k][l]] == 1){
-                return 0;
-             }
-             box_check[n->sudo[k][l]] = 1;
+  for(int i=0;i<9;++i){
+    for(int j=0;j<9;++j){
+      int test[10]={0};
+      for(int k=i;k<i+3;++k){
+        for(int l=j;l<j+3;++l){
+          if(n->sudo[k][l]!=0){
+            if(test[n->sudo[k][l]]==1)
+              return 0;
           }
-       }
+          test[n->sudo[k][l]] = 1;
+        }
+      }
     }
   }
   return 1;
