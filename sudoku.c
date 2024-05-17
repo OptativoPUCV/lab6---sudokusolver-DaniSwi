@@ -43,19 +43,39 @@ void print_node(Node *n) {
 }
 
 int is_valid(Node *n) {
-  int i, j;
-  for (i = 0; i < 9; ++i) {
-    for (j = 0; j < 9; ++j) {
-      if (n->sudo[i][j] == 0)
-        continue;
-      for (int k = 0; k < 9; ++k) {
-        if (k != j && n->sudo[i][k] == n->sudo[i][j]) {
+  for(int i=0;i<9;++i){
+    int fila[10]={0};
+    for(int j=0;j<9;++j){
+      if(n->sudo[i][j]!=0){
+        if(fila[n->sudo[i][j]]==1)
           return 0;
+      }
+      fila[n->sudo[i][j]] = 1;
+    }
+  }
+  for(int i=0;i<9;++i){
+    int col[10]={0};
+    for(int j=0;j<9;++j){
+      if(n->sudo[j][i]!=0){
+        if(col[n->sudo[j][i]]==1)
+          return 0;
+      }
+      col[n->sudo[j][i]] = 1;
+    }
+  }
+  for(int i=0;i<9;++i){
+    for(int j=0;j<9;++j){
+      int test[10]={0};
+      for(int k=0;k<i+3;++k){
+        for(int l=0;l<j+3;++l){
+          if(n->sudo[k][l]!=0){
+            if(test[n->sudo[i][j]]==1)
+              return 0;
+          }
         }
       }
     }
   }
-  return 1;
 }
 
 List *get_adj_nodes(Node *n) {
