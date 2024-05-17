@@ -55,7 +55,7 @@ int is_valid(Node *n) {
   }
   for(int i=0;i<9;++i){
     int col[10]={0};
-    for(int j=0;j<9;++j){
+    for(int j=0;j<9;++j){ 
       if(n->sudo[j][i]!=0){
         if(col[n->sudo[j][i]]==1)
           return 0;
@@ -65,7 +65,7 @@ int is_valid(Node *n) {
   }
   for(int i=0;i<9;i+=3){
     for(int j=0;j<9;j+=3){
-      int test[10]={0};
+      int test[10]={0}; //0 es vacio, 1 es ocupado
       for(int k=i;k<i+3;++k){
         for(int l=j;l<j+3;++l){
           if(n->sudo[k][l]!=0){
